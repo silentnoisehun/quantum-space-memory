@@ -1,0 +1,19 @@
+{
+ "pair": 1,
+ "secret_bits": [
+  1,
+  1,
+  1
+ ],
+ "A": {
+  "job_id": "dbnd9igou4as73b4bj0g",
+  "t_submit": 1794036934.9869976,
+  "t_done": 1794036942.1376626
+ },
+ "B": {
+  "job_id": "dbnd9kdt7fqc73ajdfng",
+  "t_submit": 1794036942.2226133,
+  "t_done": 1794036951.1558347
+ },
+ "local_gap_s": 0.08495068550109863
+}
