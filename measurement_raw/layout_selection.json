@@ -1,0 +1,20 @@
+{
+  "backend": "ibm_kingston",
+  "calibration_timestamp": "2026-11-07 05:51:53+01:00",
+  "selected_chain": [
+    48,
+    49,
+    50
+  ],
+  "sum_readout_error": 0.01416015625,
+  "readout_errors": {
+    "q48": 0.0029296875,
+    "q49": 0.00634765625,
+    "q50": 0.0048828125
+  },
+  "gate_errors_2q": {
+    "(48,49)": 0.0017632072616087513,
+    "(49,50)": 0.0014326099657001878
+  },
+  "all_valid_candidates_count": 185
+}
