@@ -15,6 +15,7 @@ Kimenet: measurement_raw/space_memory/<tag>/pairNNN.json + campaign.json
 
 import argparse
 import json
+import sys
 import time
 from pathlib import Path
 
