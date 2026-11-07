@@ -1,0 +1,10 @@
+{
+ "pair": 32,
+ "secret_bits": [
+  0,
+  0,
+  1
+ ],
+ "A": null,
+ "B": null
+}

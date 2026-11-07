@@ -1,0 +1,59 @@
+{
+  "preregistration": "docs/PREREGISTRATION-zero_iq_energy_matched.md",
+  "campaign": "20261107T075634Z",
+  "backend": "ibm_kingston",
+  "pairs": 40,
+  "A_bits_correct_fraction": 1.0,
+  "primary": {
+    "metric": "x0 = 0-felho kozeppontja a 0->1 tengely menten (globalis tengely, cal1-hez kotott drift-korrekcio)",
+    "Delta": -0.0013455897358820319,
+    "p_two_sided": 0.28615356923215385,
+    "Delta_first_half": -0.00028389668507624444,
+    "Delta_second_half": -0.0023123975643286037,
+    "same_sign_halves": true
+  },
+  "positive_control": {
+    "mean_d": 0.017549539310601624,
+    "p_one_sided": 4.9999750001249995e-06,
+    "passed": true
+  },
+  "secondary": {
+    "y0": {
+      "Delta": 0.0008622324502865398,
+      "p_two_sided": 0.4852875735621322
+    },
+    "w0": {
+      "Delta": 7.436675038829943e-06,
+      "p_two_sided": 0.9880650596747016
+    },
+    "p_exc": {
+      "Delta": -1.6276041666666626e-05,
+      "p_two_sided": 1.0
+    },
+    "p_tail": {
+      "Delta": 0.0,
+      "p_two_sided": 1.0
+    },
+    "x0_per_job_cal0_cal1_axis": {
+      "Delta": 0.000599806606360752,
+      "p_two_sided": 0.5884770576147119,
+      "note": "erzekenyebb, de egy B jobon beluli tartos nyomot a cal0 is hordozna, es kiejtene"
+    },
+    "x0_global_axis_no_drift_correction": {
+      "Delta": -0.001170379370052846,
+      "p_two_sided": 0.20390898045509773
+    },
+    "Delta_per_qubit_x0": [
+      -0.0008603225994436182,
+      1.0513605893596551e-05,
+      -0.003186960214096074
+    ],
+    "in_job_core_shift_after_reset": {
+      "mean": -4.044489323201078e-05,
+      "p_one_sided": 0.5303823480882596
+    },
+    "null_sd_of_Delta": 0.0012671609843478231
+  },
+  "h1_supported": false,
+  "verdict": "H1 NOT SUPPORTED: a 0-felho nem hordoz kimutathato nyomot az elozo jobrol; a tankonyvi joslat all."
+}

@@ -1,0 +1,24 @@
+{
+ "pair": 22,
+ "secret_bits": [
+  1,
+  1,
+  1
+ ],
+ "A_physical_pulses_per_qubit": [
+  2,
+  2,
+  2
+ ],
+ "A": {
+  "job_id": "dbndmvtt7fqc73ajede0",
+  "t_submit": 1794038652.2772841,
+  "t_done": 1794038662.399876
+ },
+ "B": {
+  "job_id": "dbndn28ou4as73b4ci50",
+  "t_submit": 1794038662.4646776,
+  "t_done": 1794038671.0490918
+ },
+ "local_gap_s": 0.06480145454406738
+}
