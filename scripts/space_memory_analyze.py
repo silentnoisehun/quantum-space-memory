@@ -1,226 +1,112 @@
 #!/usr/bin/env python3
 """
-space_memory_analyze.py — Preregistered exact analysis and decision rule for Space Memory experiment.
+space_memory_analyze.py: elore rogzitett elemzes (docs/PREREGISTRATION-space_memory.md).
 
-Preregistration: docs/PREREGISTRATION-space_memory.md
-Author: Máté Róbert (ORCID 0009-0003-3986-6039)
-Repository: https://github.com/silentnoisehun/qhf-bell-spectator
+Fo mero: Delta = atlag_q [ atlag P1_B(s=1) - atlag P1_B(s=0) ], a B job fo meresebol.
+Teszt: veletlen cimke-permutacio (qubitenkent fuggetlenul), 200 000 permutacio, ketoldali p.
+Pozitiv kontroll (tau = 0): jobonkent d_k = atlag_q [P1_c2(u=1) - P1_c2(u=0)], egyoldali elojel-permutacio.
 """
 
-import argparse
 import json
-import math
 import sys
 from pathlib import Path
-import numpy as np
 
-HERE = Path(__file__).resolve().parent
-REPO = HERE.parent
+import numpy as np
 
 N_PERM = 200_000
 
-def extract_p1(counts, num_bits=3):
-    ones = [0.0] * num_bits
-    total = sum(counts.values())
-    if total == 0:
-        return [0.0] * num_bits
-    for bstr, c in counts.items():
-        s = bstr.replace(" ", "")
-        for q in range(num_bits):
-            bit_idx = len(s) - 1 - q
-            if bit_idx >= 0 and s[bit_idx] == '1':
-                ones[q] += c
-    return [c_val / total for c_val in ones]
 
-def analyze_run(run_dir_path):
-    run_dir = Path(run_dir_path)
-    
-    with open(run_dir / "campaign.json", encoding="utf-8") as f:
-        campaign = json.load(f)
-
-    pair_files = sorted(list(run_dir.glob("pair_*.json")))
-    n_pairs = len(pair_files)
-
-    print("\n" + "=" * 80)
-    print("PREREGISTERED ANALYSIS: SPACE MEMORY CROSS-JOB EXPERIMENT")
-    print(f"Directory: {run_dir.name} | Backend: {campaign.get('backend')} | Completed Pairs: {n_pairs}")
-    print("=" * 80)
-
-    if n_pairs < 20:
-        print(f"[ERROR] Preregistered minimum pairs is 20, but only {n_pairs} pairs available.")
-        return
-
-    pairs = []
-    for pf in pair_files:
-        with open(pf, encoding="utf-8") as f:
-            pairs.append(json.load(f))
-
-    # 1. Positive Control Analysis (tau = 0 us)
-    # circuits 1: u=000, tau=0; circuit 2: u=111, tau=0
-    # In each, 'm2' is second measurement after reset
-    d_k_list = []
-    d_k_tau20_list = []
-    gaps = []
-    job_A_fidelity = []
-
-    p1_B_all = [] # shape (n_pairs, 3)
-    secret_bits_all = [] # shape (n_pairs, 3)
-
-    for p in pairs:
-        s_bits = p["secret_bits"]
-        secret_bits_all.append(s_bits)
-        p1_B0 = p["job_B"]["main_measurement_p1"]
-        p1_B_all.append(p1_B0)
-        gaps.append(p["job_B"]["gap_seconds"])
-
-        # Check job A fidelity
-        p1_A = p["job_A"]["p1"]
-        matched_A = sum(p1_A[q] if s_bits[q] == 1 else (1.0 - p1_A[q]) for q in range(3)) / 3.0
-        job_A_fidelity.append(matched_A)
-
-        # Positive controls
-        # ctrl[0] is u=000, tau=0; ctrl[1] is u=111, tau=0
-        # ctrl[2] is u=000, tau=20; ctrl[3] is u=111, tau=20
-        ctrls = p["job_B"]["positive_control_counts"]
-        p1_m2_u0_tau0 = extract_p1(ctrls[0]["m2"])
-        p1_m2_u1_tau0 = extract_p1(ctrls[1]["m2"])
-        d_k = sum(p1_m2_u1_tau0[q] - p1_m2_u0_tau0[q] for q in range(3)) / 3.0
-        d_k_list.append(d_k)
-
-        p1_m2_u0_tau20 = extract_p1(ctrls[2]["m2"])
-        p1_m2_u1_tau20 = extract_p1(ctrls[3]["m2"])
-        d_k_20 = sum(p1_m2_u1_tau20[q] - p1_m2_u0_tau20[q] for q in range(3)) / 3.0
-        d_k_tau20_list.append(d_k_20)
-
-    p1_B_all = np.array(p1_B_all)
-    secret_bits_all = np.array(secret_bits_all)
-    d_k_arr = np.array(d_k_list)
-
-    # Statistical test for Positive Control: One-sided sign-flip permutation test
-    mean_d = float(np.mean(d_k_arr))
-    rng = np.random.default_rng(20261110)
-    flips = rng.choice([-1.0, 1.0], size=(N_PERM, n_pairs))
-    perm_d = np.mean(flips * d_k_arr, axis=1)
-    p_control = float((np.sum(perm_d >= mean_d) + 1.0) / (N_PERM + 1.0))
-
-    control_passed = (mean_d > 0) and (p_control < 0.01)
-
-    print("\n[1. POSITIVE CONTROL: RESET IMPERFECTION (tau = 0 us)]")
-    print(f"  Mean d_k: {mean_d:+.6f} ({mean_d*100:+.4f}%)")
-    print(f"  One-sided sign-flip permutation p-value: {p_control:.6f} (N={N_PERM})")
-    print(f"  Positive Control Status: {'PASSED (Valid detector)' if control_passed else 'FAILED (INCONCLUSIVE)'}")
-
-    # 2. Primary Metric: Delta
-    def compute_delta(p1_mat, s_mat):
-        delta_q = []
-        for q in range(3):
-            mask1 = (s_mat[:, q] == 1)
-            mask0 = (s_mat[:, q] == 0)
-            p1_when_1 = np.mean(p1_mat[mask1, q]) if np.sum(mask1) > 0 else 0.0
-            p1_when_0 = np.mean(p1_mat[mask0, q]) if np.sum(mask0) > 0 else 0.0
-            delta_q.append(float(p1_when_1 - p1_when_0))
-        return delta_q, float(np.mean(delta_q))
-
-    delta_q, delta_main = compute_delta(p1_B_all, secret_bits_all)
-
-    # Permutation test for Delta: random relabelling of secret bits independently per qubit
-    perm_deltas = np.zeros(N_PERM)
+def delta(p1b, S):
+    ds = []
     for q in range(3):
-        # Generate N_PERM permutations of secret_bits_all[:, q]
-        s_col = secret_bits_all[:, q].copy()
-        # Vectorized random permutations
-        perms = np.array([rng.permutation(s_col) for _ in range(N_PERM)])
-        # Compute mean difference for each perm
-        # mask1: perms == 1, mask0: perms == 0
-        y = p1_B_all[:, q] # shape (n_pairs,)
-        mean1 = np.dot(perms, y) / np.sum(s_col == 1)
-        mean0 = np.dot(1 - perms, y) / np.sum(s_col == 0)
-        perm_deltas += (mean1 - mean0) / 3.0
+        one, zero = p1b[S[:, q] == 1, q], p1b[S[:, q] == 0, q]
+        ds.append(one.mean() - zero.mean())
+    return float(np.mean(ds)), [float(x) for x in ds]
 
-    p_primary = float((np.sum(np.abs(perm_deltas) >= abs(delta_main)) + 1.0) / (N_PERM + 1.0))
 
-    # Split-half consistency
-    half = n_pairs // 2
-    _, delta_first = compute_delta(p1_B_all[:half], secret_bits_all[:half])
-    _, delta_second = compute_delta(p1_B_all[half:], secret_bits_all[half:])
-    same_sign = (delta_first * delta_second > 0)
+def perm_p(p1b, S, obs, rng, chunk=20_000):
+    """Cimkek veletlen permutacioja qubitenkent fuggetlenul, vektorizalva."""
+    n = S.shape[0]
+    cnt = 0
+    for start in range(0, N_PERM, chunk):
+        m = min(chunk, N_PERM - start)
+        tot = np.zeros(m)
+        for q in range(3):
+            idx = np.argsort(rng.random((m, n)), axis=1)
+            L = S[:, q][idx]                      # permutalt cimkek [m, n]
+            n1 = L.sum(axis=1)
+            s1 = (L * p1b[:, q]).sum(axis=1)
+            s0 = ((1 - L) * p1b[:, q]).sum(axis=1)
+            tot += s1 / n1 - s0 / (n - n1)
+        cnt += int((np.abs(tot / 3) >= abs(obs) - 1e-15).sum())
+    return (cnt + 1) / (N_PERM + 1)
 
-    # 3. Decision Rule
-    h1_supported = False
-    verdict = ""
-    if not control_passed:
-        verdict = "INCONCLUSIVE (Positive control failed)"
-    elif (p_primary < 0.01) and same_sign:
-        h1_supported = True
-        verdict = "H1 SUPPORTED (Information persists across jobs!)"
+
+def signflip_p_one_sided(d, rng):
+    d = np.asarray(d)
+    obs = d.mean()
+    signs = rng.choice([-1, 1], size=(N_PERM, len(d)))
+    return float(((signs * d).mean(axis=1) >= obs - 1e-15).sum() + 1) / (N_PERM + 1)
+
+
+def main():
+    d = Path(sys.argv[1])
+    camp = json.loads((d / "campaign.json").read_text(encoding="utf-8"))
+    pairs = sorted(d.glob("pair*.json"))
+    recs = [json.loads(p.read_text(encoding="utf-8")) for p in pairs]
+    S = np.array([r["secret_bits"] for r in recs])
+    p1b = np.array([r["B"]["p1_main"] for r in recs])
+    p1a = np.array([r["A"]["p1"] for r in recs])
+    rng = np.random.default_rng(12345)
+
+    D, Dq = delta(p1b, S)
+    p = perm_p(p1b, S, D, rng)
+    h = len(recs) // 2
+    D1, _ = delta(p1b[:h], S[:h])
+    D2, _ = delta(p1b[h:], S[h:])
+    same_sign = bool(np.sign(D1) == np.sign(D2) and D1 != 0)
+
+    # A jobok ellenorzese: a titkos bit tenyleg beallt-e
+    a_ok = float(np.mean(np.abs(p1a - S) < 0.5))
+
+    ctrl = {}
+    for tau in camp["taus_us"]:
+        dk = []
+        for r in recs:
+            c = {x["u"]: x for x in r["controls"] if x["tau_us"] == tau}
+            dk.append(float(np.mean(np.array(c[1]["p1_c2"]) - np.array(c[0]["p1_c2"]))))
+        ctrl[f"tau_{tau}us"] = {"mean_d": float(np.mean(dk)), "sd_d": float(np.std(dk, ddof=1)),
+                                "p_one_sided": signflip_p_one_sided(dk, rng)}
+    control_ok = ctrl["tau_0us"]["mean_d"] > 0 and ctrl["tau_0us"]["p_one_sided"] < 0.01
+
+    gaps = [r.get("gap_s") for r in recs]
+    sec_gap = None
+    if all(g is not None for g in gaps):
+        g = np.array(gaps)
+        short = g <= np.median(g)
+        sec_gap = {"median_gap_s": float(np.median(g)),
+                   "delta_short_gaps": delta(p1b[short], S[short])[0],
+                   "delta_long_gaps": delta(p1b[~short], S[~short])[0]}
+
+    h1 = bool(control_ok and p < 0.01 and same_sign)
+    if not control_ok:
+        verdict = "INCONCLUSIVE: a pozitiv kontroll nem mutatta ki a reset-hibat, a modszer erzekenysege nem igazolt."
+    elif h1:
+        verdict = "H1 SUPPORTED: jobok kozotti informacio a reset utan (replikacio szukseges masik gepen)."
     else:
-        verdict = "H1 NOT SUPPORTED (Consistent with H0 / textbook quantum mechanics)"
+        verdict = "H1 NOT SUPPORTED: nincs kimutathato jobok kozotti informacio; a tankonyvi joslat all."
 
-    print("\n[2. PRIMARY METRIC & DECISION RULE: DELTA]")
-    print(f"  Primary Delta (mean over 3 qubits): {delta_main:+.6f} ({delta_main*100:+.4f}%)")
-    print(f"  Per-qubit Delta: Q0={delta_q[0]:+.6f}, Q1={delta_q[1]:+.6f}, Q2={delta_q[2]:+.6f}")
-    print(f"  Two-sided permutation p-value: {p_primary:.6f} (N={N_PERM})")
-    print(f"  Split-half consistency: First half={delta_first:+.6f}, Second half={delta_second:+.6f} (Same sign: {same_sign})")
-    print(f"\n>>> FINAL PREREGISTERED VERDICT: {verdict} <<<")
-
-    # 4. Secondary Metrics
-    median_gap = float(np.median(gaps))
-    short_mask = np.array(gaps) <= median_gap
-    long_mask = np.array(gaps) > median_gap
-    _, delta_short = compute_delta(p1_B_all[short_mask], secret_bits_all[short_mask])
-    _, delta_long = compute_delta(p1_B_all[long_mask], secret_bits_all[long_mask])
-
-    mean_d_tau20 = float(np.mean(d_k_tau20_list))
-    mean_A_fidelity = float(np.mean(job_A_fidelity))
-
-    print("\n[3. SECONDARY METRICS]")
-    print(f"  Median Job Gap: {median_gap:.2f} s")
-    print(f"  Delta for Short Gap (<= {median_gap:.2f}s): {delta_short:+.6f}")
-    print(f"  Delta for Long Gap  (>  {median_gap:.2f}s): {delta_long:+.6f}")
-    print(f"  Positive Control at tau = 20 us: {mean_d_tau20:+.6f} ({mean_d_tau20*100:+.4f}%)")
-    print(f"  Job A Bit Setting Fidelity: {mean_A_fidelity*100:.2f}%")
-
-    analysis_out = {
-        "preregistration": "docs/PREREGISTRATION.md",
-        "backend": campaign.get("backend"),
-        "qubits": campaign.get("physical_qubits"),
-        "n_pairs": n_pairs,
-        "positive_control": {
-            "mean_d": mean_d,
-            "p_value_one_sided": p_control,
-            "passed": control_passed
-        },
-        "primary_metric": {
-            "delta_main": delta_main,
-            "delta_q": delta_q,
-            "p_value_two_sided": p_primary,
-            "delta_first_half": delta_first,
-            "delta_second_half": delta_second,
-            "split_half_same_sign": same_sign,
-            "h1_supported": h1_supported
-        },
-        "verdict": verdict,
-        "secondary_metrics": {
-            "median_gap_seconds": median_gap,
-            "delta_short_gap": delta_short,
-            "delta_long_gap": delta_long,
-            "positive_control_tau20_us": mean_d_tau20,
-            "job_A_fidelity": mean_A_fidelity
-        }
+    res = {
+        "preregistration": camp["preregistration"], "campaign": camp["tag"], "backend": camp["backend"],
+        "pairs": len(recs), "A_bits_set_correctly_fraction": a_ok,
+        "primary": {"Delta": D, "Delta_per_qubit": Dq, "p_two_sided": p,
+                    "Delta_pairs_first_half": D1, "Delta_pairs_second_half": D2, "same_sign_halves": same_sign},
+        "positive_control": ctrl, "positive_control_passed": bool(control_ok),
+        "secondary_gap": sec_gap, "h1_supported": h1, "verdict": verdict,
     }
+    (d / "analysis.json").write_text(json.dumps(res, indent=2), encoding="utf-8")
+    print(json.dumps(res, indent=2))
 
-    with open(run_dir / "analysis.json", "w", encoding="utf-8") as f:
-        json.dump(analysis_out, f, indent=2)
-
-    with open(run_dir / "report.txt", "w", encoding="utf-8") as f:
-        f.write(f"PREREGISTERED VERDICT: {verdict}\n")
-        f.write(f"Primary Delta: {delta_main:+.6f} (p = {p_primary:.6f})\n")
-        f.write(f"Positive Control mean d: {mean_d:+.6f} (p = {p_control:.6f})\n")
-
-    print(f"\nAnalysis saved to {run_dir / 'analysis.json'}")
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("run_dir", type=str, help="Path to run directory")
-    args = parser.parse_args()
-    analyze_run(args.run_dir)
+    main()
