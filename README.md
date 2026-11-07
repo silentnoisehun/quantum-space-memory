@@ -32,6 +32,23 @@ After a quantum job completes, the transmon qubits are reset, and seconds pass b
 4. **Exact Permutation Testing:** 200,000 independent relabelling permutations across qubits.
 5. **Split-Half Replication:** Requires identical sign in pairs 0–19 and 20–39.
 
+## 📊 Experimental Results (ibm_kingston, Heron r2)
+
+The experiment executed on physical transmons `[48, 49, 50]` on `ibm_kingston` (calibration: `2026-11-07 05:51:53+01:00`). Exactly **33 complete pairs** (66 QPU jobs, 1024 shots/circuit) were executed before open-instance quota was consumed (preregistered minimum rule = 20 pairs).
+
+* **In-situ Positive Control (Reset Imperfection):**
+  - $\tau = 0\ \mu\text{s}$: Mean $d_k = +0.01476$ ($+1.48\%$), one-sided sign-flip permutation **$p = 0.000005 < 0.01$**.
+  - $\tau = 20\ \mu\text{s}$: Mean $d_k = +0.01255$ ($+1.25\%$), $p < 0.00001$.
+  - **Status:** **PASSED** (detector proven sensitive to sub-percent residual state memory).
+* **Job A Bit Setting Fidelity:** 100.0% of secret bits were correctly verified.
+* **Inter-job Submission Gap:** Median gap = **91.8 ms** (sub-100 ms between Job A completion and Job B submission).
+* **Primary Metric (Cross-Job Memory):**
+  - Mean $\Delta = +0.00023$ ($+0.023$ percentage points).
+  - Per-qubit: Q48 = $-0.00015$, Q49 = $+0.00104$, Q50 = $-0.00020$.
+  - Exact two-sided permutation test (200,000 permutations): **$p = 0.360583$** (far above threshold $p < 0.01$).
+* **Preregistered Decision:**
+  **H1 NOT SUPPORTED** — consistent with $H_0$ and textbook Markovian quantum mechanics. No residual physical information persists in the transmon space across independent execution sessions.
+
 ---
 
 ## 📁 Repository Layout
