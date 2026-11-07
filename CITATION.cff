@@ -1,0 +1,17 @@
+cff-version: 1.2.0
+message: "If you use this dataset or software, please cite it as below."
+authors:
+  - family-names: "Róbert"
+    given-names: "Máté"
+    orcid: "https://orcid.org/0009-0003-3986-6039"
+title: "Quantum Space Memory: Preregistered Cross-Job Information Persistence Test on Superconducting Transmons"
+version: 0.1.0
+date-released: 2026-11-07
+url: "https://github.com/silentnoisehun/quantum-space-memory"
+keywords:
+  - "quantum computing"
+  - "superconducting qubits"
+  - "transmon"
+  - "preregistration"
+  - "memory in space"
+license: MIT

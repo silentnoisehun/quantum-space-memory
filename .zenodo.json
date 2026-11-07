@@ -1,0 +1,26 @@
+{
+  "title": "Quantum Space Memory: Preregistered Cross-Job Information Persistence Test on Superconducting Transmons",
+  "description": "Preregistered experimental test probing whether physical superconducting transmon qubits retain information about secret state preparations across distinct, macroscopic execution sessions separated by seconds ('Memory in Space'). Contains frozen preregistration, algorithmic transmon layout selection, full raw Qiskit counts, in-situ positive control reset circuits, and exact permutation test analyzers on IBM Quantum Heron r2 processors.",
+  "keywords": [
+    "quantum computing",
+    "superconducting qubits",
+    "transmon",
+    "ibm quantum",
+    "quantum memory",
+    "non-markovian open quantum systems",
+    "preregistration",
+    "reproducible science"
+  ],
+  "license": "MIT",
+  "version": "0.1.0",
+  "publication_date": "2026-11-07",
+  "creators": [
+    {
+      "name": "Róbert, Máté",
+      "affiliation": "Independent Quantum Researcher, Silent Coder Lab",
+      "orcid": "0009-0003-3986-6039"
+    }
+  ],
+  "access_right": "open",
+  "upload_type": "software"
+}
