@@ -1,0 +1,8 @@
+{
+  "pos_ctrl_passed": false,
+  "phi_pos_deg": 0.0,
+  "max_phase_dev_deg": 0.0,
+  "mean_phase_err_deg": 0.0,
+  "max_p1_dev": 0.0,
+  "verdict": "H0 CONFIRMED (Markovian Vacuum / No Spatial Memory)"
+}

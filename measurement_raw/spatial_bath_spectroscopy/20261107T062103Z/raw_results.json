@@ -1,0 +1,1517 @@
+{
+  "preregistration": "docs/PREREGISTRATION-spatial_bath_spectroscopy.md",
+  "tag": "20261107T062103Z",
+  "backend": "ibm_kingston",
+  "physical_qubits": [
+    48,
+    49,
+    50
+  ],
+  "calibration_date": "2026-11-07 07:10:03+01:00",
+  "shots": 4096,
+  "job_id": "dbnc6ooqtr0c73acp00g",
+  "total_circuits": 92,
+  "data": [
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 10.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "000": 3717,
+        "010": 371,
+        "001": 7,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P4_positive_control",
+        "s": "control",
+        "tau_us": 10.0,
+        "injected_phase": 0.7853981633974483,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "000": 2713,
+        "010": 1373,
+        "001": 3,
+        "011": 3,
+        "110": 1,
+        "100": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 50.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "000": 852,
+        "010": 3236,
+        "011": 6,
+        "100": 1,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 100.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "010": 2612,
+        "000": 1476,
+        "011": 3,
+        "110": 2,
+        "100": 1,
+        "001": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 0.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 2059,
+        "000": 1978,
+        "001": 33,
+        "011": 24,
+        "110": 1,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 2.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 3951,
+        "000": 136,
+        "011": 6,
+        "100": 1,
+        "110": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 100.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "000": 2572,
+        "010": 1510,
+        "100": 3,
+        "001": 7,
+        "110": 3,
+        "011": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 0.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "000": 1953,
+        "010": 2089,
+        "011": 26,
+        "001": 25,
+        "110": 1,
+        "100": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 10.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 2566,
+        "010": 1519,
+        "001": 6,
+        "011": 4,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 0,
+        "total_us": 40.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 3356,
+        "000": 727,
+        "110": 6,
+        "011": 6,
+        "001": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 100.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 2643,
+        "000": 1441,
+        "001": 3,
+        "110": 3,
+        "011": 6
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 0,
+        "total_us": 10.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "000": 3809,
+        "010": 279,
+        "001": 6,
+        "011": 1,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 50.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 3158,
+        "010": 929,
+        "011": 1,
+        "100": 2,
+        "001": 6
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 50.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 2507,
+        "010": 1578,
+        "001": 7,
+        "100": 2,
+        "011": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 2.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 141,
+        "010": 3946,
+        "011": 5,
+        "110": 4
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 25.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 3304,
+        "010": 783,
+        "001": 3,
+        "011": 3,
+        "110": 2,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 25.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 806,
+        "000": 3280,
+        "100": 3,
+        "001": 7
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 10.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "000": 1476,
+        "010": 2613,
+        "011": 1,
+        "001": 4,
+        "110": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P4_positive_control",
+        "s": "control",
+        "tau_us": 10.0,
+        "injected_phase": 0.7853981633974483,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "010": 3648,
+        "000": 436,
+        "011": 9,
+        "001": 1,
+        "110": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 1,
+        "total_us": 40.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "011": 687,
+        "001": 3380,
+        "000": 22,
+        "101": 3,
+        "010": 3,
+        "111": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 50.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 2530,
+        "010": 1555,
+        "011": 4,
+        "001": 4,
+        "110": 2,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 25.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "010": 1119,
+        "000": 2975,
+        "001": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 100.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "000": 1478,
+        "010": 2564,
+        "001": 17,
+        "011": 33,
+        "110": 3,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 0.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "000": 4031,
+        "010": 20,
+        "001": 43,
+        "100": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 0,
+        "total_us": 80.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 2950,
+        "000": 1131,
+        "110": 7,
+        "011": 6,
+        "001": 1,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 0.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 2039,
+        "000": 2052,
+        "001": 3,
+        "110": 1,
+        "011": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 10.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 3734,
+        "000": 311,
+        "011": 44,
+        "001": 6,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 10.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 3714,
+        "000": 370,
+        "011": 10,
+        "110": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 100.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 1588,
+        "000": 2497,
+        "001": 5,
+        "011": 3,
+        "110": 2,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 0,
+        "total_us": 10.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 3844,
+        "000": 246,
+        "110": 1,
+        "011": 5
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 0.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "000": 4082,
+        "001": 7,
+        "010": 7
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 75.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 1894,
+        "000": 2190,
+        "100": 4,
+        "001": 2,
+        "110": 5,
+        "011": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 150.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 1519,
+        "010": 2561,
+        "100": 3,
+        "110": 6,
+        "011": 6,
+        "001": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 25.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "010": 1048,
+        "000": 2984,
+        "011": 19,
+        "001": 43,
+        "100": 1,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 100.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 2572,
+        "000": 1470,
+        "100": 6,
+        "011": 34,
+        "001": 13,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 10.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "000": 3654,
+        "010": 377,
+        "001": 57,
+        "011": 5,
+        "100": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 50.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 3095,
+        "010": 946,
+        "001": 41,
+        "110": 1,
+        "011": 10,
+        "100": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 200.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 1958,
+        "000": 2129,
+        "001": 2,
+        "100": 3,
+        "011": 4
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 100.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 2629,
+        "000": 1457,
+        "110": 3,
+        "011": 2,
+        "100": 4,
+        "001": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 25.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 3006,
+        "000": 1075,
+        "001": 2,
+        "110": 4,
+        "011": 8,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 25.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 1061,
+        "010": 2992,
+        "011": 28,
+        "001": 14,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 50.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 2357,
+        "010": 1691,
+        "001": 30,
+        "011": 16,
+        "100": 1,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 1,
+        "total_us": 40.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "011": 3369,
+        "001": 698,
+        "010": 21,
+        "000": 6,
+        "111": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 25.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 3195,
+        "010": 844,
+        "001": 44,
+        "011": 10,
+        "100": 2,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 50.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 3164,
+        "010": 928,
+        "100": 1,
+        "001": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 1,
+        "total_us": 20.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "011": 3680,
+        "001": 386,
+        "010": 20,
+        "000": 4,
+        "111": 5,
+        "101": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 150.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 2506,
+        "000": 1586,
+        "100": 2,
+        "011": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 50.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "000": 1629,
+        "010": 2425,
+        "011": 22,
+        "001": 17,
+        "110": 1,
+        "100": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 1,
+        "total_us": 80.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "011": 3035,
+        "001": 1031,
+        "010": 14,
+        "000": 13,
+        "101": 1,
+        "111": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 200.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 2016,
+        "000": 2073,
+        "100": 3,
+        "011": 3,
+        "001": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 200.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 2287,
+        "010": 1794,
+        "001": 6,
+        "100": 3,
+        "110": 4,
+        "011": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 0,
+        "total_us": 20.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "000": 3680,
+        "010": 409,
+        "001": 5,
+        "011": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 2.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 2013,
+        "010": 2073,
+        "011": 3,
+        "001": 7
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 100.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 1571,
+        "000": 2514,
+        "100": 5,
+        "001": 5,
+        "011": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 150.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 1884,
+        "010": 2203,
+        "011": 1,
+        "001": 3,
+        "100": 5
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 10.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 3687,
+        "000": 405,
+        "001": 1,
+        "011": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 10.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 1434,
+        "000": 2649,
+        "110": 3,
+        "011": 4,
+        "100": 2,
+        "001": 4
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 25.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 3277,
+        "010": 814,
+        "100": 3,
+        "001": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 75.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 2938,
+        "010": 1150,
+        "110": 3,
+        "001": 3,
+        "100": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 100.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 2612,
+        "000": 1471,
+        "110": 6,
+        "100": 2,
+        "011": 2,
+        "001": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 100.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 2535,
+        "001": 26,
+        "010": 1514,
+        "100": 5,
+        "011": 15,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 200.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 2285,
+        "010": 1800,
+        "110": 3,
+        "100": 5,
+        "001": 2,
+        "011": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 2.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 2007,
+        "010": 2080,
+        "011": 6,
+        "001": 1,
+        "110": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 150.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 1903,
+        "010": 2179,
+        "011": 3,
+        "001": 7,
+        "100": 2,
+        "110": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 0.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 4064,
+        "000": 28,
+        "011": 4
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 10.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 1468,
+        "000": 2616,
+        "011": 5,
+        "001": 5,
+        "110": 1,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 50.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "000": 858,
+        "010": 3188,
+        "011": 37,
+        "001": 9,
+        "110": 3,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P4_positive_control",
+        "s": "control",
+        "tau_us": 10.0,
+        "injected_phase": 0.7853981633974483,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 2738,
+        "000": 1351,
+        "011": 2,
+        "001": 2,
+        "110": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 1,
+        "total_us": 80.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "001": 2997,
+        "011": 1066,
+        "111": 2,
+        "000": 22,
+        "010": 8,
+        "101": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 25.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 2924,
+        "000": 1158,
+        "110": 3,
+        "011": 9,
+        "100": 1,
+        "001": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 100.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 1549,
+        "000": 2538,
+        "100": 3,
+        "011": 4,
+        "001": 1,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 50.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "010": 2513,
+        "000": 1570,
+        "110": 3,
+        "011": 5,
+        "100": 1,
+        "001": 4
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 25.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 2972,
+        "000": 1111,
+        "110": 5,
+        "011": 6,
+        "001": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 100.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "010": 1483,
+        "000": 2577,
+        "001": 23,
+        "011": 10,
+        "100": 2,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P4_positive_control",
+        "s": "control",
+        "tau_us": 10.0,
+        "injected_phase": 0.7853981633974483,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 3686,
+        "010": 400,
+        "011": 3,
+        "110": 1,
+        "001": 5,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 1,
+        "total_us": 10.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "011": 3825,
+        "010": 18,
+        "001": 249,
+        "000": 1,
+        "111": 2,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 0,
+        "total_us": 40.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "010": 676,
+        "000": 3410,
+        "100": 2,
+        "001": 7,
+        "011": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 0.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 4004,
+        "000": 38,
+        "011": 51,
+        "110": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 10.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 3737,
+        "000": 352,
+        "011": 5,
+        "001": 1,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 10.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 1523,
+        "000": 2515,
+        "011": 18,
+        "100": 3,
+        "001": 37
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 0,
+        "total_us": 20.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "010": 3650,
+        "000": 441,
+        "011": 4,
+        "100": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 10.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "010": 2479,
+        "000": 1562,
+        "001": 17,
+        "011": 36,
+        "100": 1,
+        "110": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 75.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 2972,
+        "010": 1114,
+        "100": 2,
+        "011": 2,
+        "110": 2,
+        "001": 4
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 0,
+        "tau_us": 75.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "010": 1892,
+        "000": 2191,
+        "110": 5,
+        "100": 5,
+        "001": 1,
+        "011": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 0.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "010": 2124,
+        "000": 1960,
+        "110": 2,
+        "001": 3,
+        "011": 4,
+        "100": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 50.0,
+        "theta": 0.0,
+        "theta_name": "0"
+      },
+      "counts": {
+        "000": 2485,
+        "010": 1602,
+        "110": 4,
+        "011": 4,
+        "001": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 1,
+        "total_us": 20.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "001": 3665,
+        "011": 405,
+        "010": 8,
+        "101": 3,
+        "000": 15
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 1,
+        "total_us": 10.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "001": 3819,
+        "011": 257,
+        "000": 14,
+        "101": 5,
+        "111": 1
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P2_tls_dephasing",
+        "s": 1,
+        "tau_us": 50.0,
+        "theta": 1.5707963267948966,
+        "theta_name": "pi/2"
+      },
+      "counts": {
+        "000": 3155,
+        "010": 933,
+        "001": 3,
+        "011": 1,
+        "100": 2,
+        "110": 2
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 1,
+        "tau_us": 25.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "010": 3193,
+        "011": 47,
+        "000": 843,
+        "001": 8,
+        "110": 2,
+        "100": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P3_cpmg_decoupling",
+        "s": 0,
+        "total_us": 80.0,
+        "theta": 3.141592653589793,
+        "theta_name": "pi"
+      },
+      "counts": {
+        "010": 1150,
+        "000": 2933,
+        "011": 1,
+        "110": 2,
+        "001": 7,
+        "100": 3
+      }
+    },
+    {
+      "meta": {
+        "protocol": "P1_phase_tomography",
+        "s": 0,
+        "tau_us": 25.0,
+        "theta": 4.71238898038469,
+        "theta_name": "3pi/2"
+      },
+      "counts": {
+        "010": 3314,
+        "000": 774,
+        "011": 5,
+        "001": 2,
+        "100": 1
+      }
+    }
+  ]
+}

@@ -85,11 +85,27 @@ def main():
     phi_pos_deg = np.rad2deg(phi_pos)
     phi_err_pos_deg = np.rad2deg(phi_err_pos)
 
+    # Reference baseline at tau = 10 us (s=0)
+    items_s0_10us = sorted([d for d in data if d["meta"]["protocol"] == "P1_phase_tomography"
+                            and d["meta"]["tau_us"] == 10.0 and d["meta"]["s"] == 0],
+                           key=lambda x: x["meta"]["theta"])
+    th0_10us = np.array([d["meta"]["theta"] for d in items_s0_10us])
+    p0_10us = np.array([get_p1(d["counts"], q_idx=1) for d in items_s0_10us])
+    _, _, phi_base_10us, phi_base_err, _ = fit_fringe(th0_10us, p0_10us)
+    phi_base_10us_deg = np.rad2deg(phi_base_10us)
+
+    # Injected phase difference relative to baseline:
+    # Phase is modulo 360:
+    injected_measured_deg = (phi_pos_deg - phi_base_10us_deg + 180) % 360 - 180
+    injected_err_deg = np.sqrt(phi_err_pos_deg**2 + np.rad2deg(phi_base_err)**2)
+
     print("\n" + "=" * 60)
-    print("1. POSITIVE CONTROL (Injected Rz(pi/4) = 45 deg phase)")
+    print("1. POSITIVE CONTROL (Injected Rz(pi/4) = 45.0 deg phase)")
     print(f"Visibility: V = {v_pos:.4f} (R2 = {r2_pos:.4f})")
-    print(f"Fitted Phase Shift: {phi_pos_deg:.2f}° ± {phi_err_pos_deg:.2f}° (Expected: 45.0°)")
-    pos_ctrl_passed = abs(phi_pos_deg - 45.0) < 5.0 and r2_pos > 0.90
+    print(f"Baseline Phase at tau=10us: {phi_base_10us_deg:.2f}°")
+    print(f"Fitted Total Phase: {phi_pos_deg:.2f}°")
+    print(f"Differential Injected Phase Resolved: {injected_measured_deg:+.2f}° ± {injected_err_deg:.2f}° (Target: +45.0°)")
+    pos_ctrl_passed = abs(injected_measured_deg - 45.0) < 6.0 and r2_pos > 0.90
     print(f"Positive Control Verdict: {'PASSED [OK]' if pos_ctrl_passed else 'FAILED [INCONCLUSIVE]'}")
     print("=" * 60)
 

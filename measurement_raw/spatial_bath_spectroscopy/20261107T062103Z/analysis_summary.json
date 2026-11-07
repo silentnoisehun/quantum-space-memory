@@ -1,0 +1,8 @@
+{
+  "pos_ctrl_passed": true,
+  "phi_pos_deg": -112.76594451954459,
+  "max_phase_dev_deg": 4.072655841023633,
+  "mean_phase_err_deg": 1.0349319437063536,
+  "max_p1_dev": 0.007568359375,
+  "verdict": "H1 SUPPORTED (Spatial Memory Detected)"
+}
