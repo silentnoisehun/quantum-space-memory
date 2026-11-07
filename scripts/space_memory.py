@@ -164,8 +164,13 @@ def main():
             rec["A"] = {"job_id": None, "t_submit": None, "t_done": None}
             rec["B"] = {"job_id": None, "t_submit": None, "t_done": None}
         else:
-            ja, ta0, ta1, regsA = run([qa])
-            jb, tb0, tb1, regsB = run([qb] + [ct["circuit"] for ct in ctrls])
+            try:
+                ja, ta0, ta1, regsA = run([qa])
+                jb, tb0, tb1, regsB = run([qb] + [ct["circuit"] for ct in ctrls])
+            except Exception as e:
+                print(f"\n[INFO] Run stopped at pair {k}: {e}")
+                campaign["interrupted_reason"] = str(e)
+                break
             rec["A"] = {"job_id": ja, "t_submit": ta0, "t_done": ta1}
             rec["B"] = {"job_id": jb, "t_submit": tb0, "t_done": tb1}
             rec["gap_s"] = tb0 - ta1
@@ -182,12 +187,18 @@ def main():
         (out / f"pair{k:03d}.json").write_text(json.dumps(rec, indent=1), encoding="utf-8")
         print(f"pair {k:02d} s={s.tolist()} B_main P1={np.round(rec['B']['p1_main'], 4).tolist()}")
 
+    completed_count = len(list(out.glob("pair*.json")))
     campaign["end_utc"] = time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
-    campaign["completed_pairs"] = args.pairs
+    campaign["completed_pairs"] = completed_count
     if not args.dry_run:
         campaign["calibration_end"] = str(backend.properties(refresh=True).last_update_date)
     (out / "campaign.json").write_text(json.dumps(campaign, indent=2), encoding="utf-8")
     print("Kesz:", out)
+
+    if completed_count >= 20:
+        import subprocess
+        print("\nFut az elemzes...")
+        subprocess.run([sys.executable, str(REPO / "scripts" / "space_memory_analyze.py"), str(out)])
 
 
 if __name__ == "__main__":
