@@ -86,6 +86,20 @@ Comprehensive 92-circuit spectroscopy on `ibm_kingston` (Heron r2) evaluating sp
 
 ---
 
+## ☁️ Zero IQ Memory: Looking Inside the 0-Cloud (`20261107T073452Z`)
+
+Direct interrogation of continuous raw IQ readout voltages to detect sub-bit ground-state displacement across independent jobs on `ibm_kingston` (Heron r2):
+* **Preregistration:** [`docs/PREREGISTRATION-zero_iq_memory.md`](docs/PREREGISTRATION-zero_iq_memory.md) (Script: `scripts/zero_iq_memory.py`)
+* **Execution:** Exactly **40 complete pairs** (80 jobs, 1024 shots/circuit, kerneled IQ data) executed with 100% bit classification accuracy in Job A ($A_{\text{correct}} = 1.0$).
+* **Positive Control:** In-situ reset imperfection detected with **$\bar{d} = +0.0188$ ($p = 0.000005 < 0.01$)**, confirming sub-percent IQ cloud sensitivity.
+* **Primary Result:** Ground-state cloud centroid shift along the $0 \to 1$ axis:
+  $$\Delta = -0.00069,\quad p_{\text{two-sided}} = 0.5546 \gg 0.01$$
+  - Null standard deviation: $\sigma_{\text{null}} = 0.00115$ (observed $|\Delta| < 0.6\sigma$).
+  - Job-to-job drift-corrected and raw axes are identically consistent with zero ($p = 0.85$ and $p = 0.22$).
+* **Verdict:** **H0 CONFIRMED / H1 NOT SUPPORTED.** The continuous ground-state IQ distribution retains zero sub-bit displacement from the prior job's preparation. Textbook Markovian reset holds down to the raw analog microwave level.
+
+---
+
 ## 📁 Repository Layout
 
 ```
