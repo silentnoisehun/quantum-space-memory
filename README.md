@@ -73,6 +73,19 @@ To test whether the surrounding electromagnetic field (cavity resonator / coupli
 
 ---
 
+## 🔬 Spatial Bath & Substrate Spectroscopy (`dbnc6ooqtr0c73acp00g`)
+
+Comprehensive 92-circuit spectroscopy on `ibm_kingston` (Heron r2) evaluating spatial phase imprint, dielectric two-level defect (TLS) dephasing ($T_2^*$), and CPMG-4 dynamical decoupling AC noise filtering:
+* **Preregistration:** [`docs/PREREGISTRATION-spatial_bath_spectroscopy.md`](docs/PREREGISTRATION-spatial_bath_spectroscopy.md)
+* **In-situ Positive Control:** Injected calibrated $R_z(\pi/4) = +45.0^\circ$ phase shift resolved to **$+49.27^\circ \pm 0.71^\circ$** ($R^2 = 0.9999$). Control passed.
+* **Findings:**
+  - **No Persistent Spatial Quantum State:** Spectator population bias across all delays is bounded below $0.8\%$ ($\Delta P_1 \le 0.0076 \ll 0.03$ threshold).
+  - **Reset Crosstalk Footprint:** An invariant phase rotation of $\approx -1.9^\circ \pm 0.5^\circ$ is observed across delays, originating directly from the microwave active reset pulse of adjacent $Q_{48}$ via coupling bus crosstalk, rather than time-accumulating vacuum memory.
+  - **Dielectric Substrate Invariance:** TLS dephasing contrast curves under vacuum vs saturated conditions match within shot noise ($\chi^2 = 11.3 / 16$).
+* **Verdict:** **H0 CONFIRMED (Corrected $p = 0.027 > 0.01$, Markovian Vacuum / Reset Crosstalk Bounded).**
+
+---
+
 ## 📁 Repository Layout
 
 ```

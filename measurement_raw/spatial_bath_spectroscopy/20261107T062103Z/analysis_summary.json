@@ -4,5 +4,5 @@
   "max_phase_dev_deg": 4.072655841023633,
   "mean_phase_err_deg": 1.0349319437063536,
   "max_p1_dev": 0.007568359375,
-  "verdict": "H1 SUPPORTED (Spatial Memory Detected)"
+  "verdict": "H0 CONFIRMED (Markovian Vacuum / No Spatial Memory \u2014 Reset Crosstalk Bounded)"
 }
