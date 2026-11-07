@@ -1,0 +1,39 @@
+{
+  "preregistration": "docs/PREREGISTRATION-space_memory.md",
+  "campaign": "20261107T050740Z",
+  "backend": "ibm_kingston",
+  "pairs": 33,
+  "A_bits_set_correctly_fraction": 1.0,
+  "primary": {
+    "Delta": 0.00022956665305010898,
+    "Delta_per_qubit": [
+      -0.00015190972222222233,
+      0.0010416666666666669,
+      -0.00020105698529411758
+    ],
+    "p_two_sided": 0.3605831970840146,
+    "Delta_pairs_first_half": 0.00036491918816137565,
+    "Delta_pairs_second_half": 0.0001440300512566138,
+    "same_sign_halves": true
+  },
+  "positive_control": {
+    "tau_0us": {
+      "mean_d": 0.014756944444444446,
+      "sd_d": 0.002491971298755516,
+      "p_one_sided": 4.9999750001249995e-06
+    },
+    "tau_20us": {
+      "mean_d": 0.012547348484848484,
+      "sd_d": 0.0017905327163649605,
+      "p_one_sided": 4.9999750001249995e-06
+    }
+  },
+  "positive_control_passed": true,
+  "secondary_gap": {
+    "median_gap_s": 0.09180212020874023,
+    "delta_short_gaps": -9.300595238095349e-06,
+    "delta_long_gaps": 0.0005471145607864358
+  },
+  "h1_supported": false,
+  "verdict": "H1 NOT SUPPORTED: nincs kimutathato jobok kozotti informacio; a tankonyvi joslat all."
+}
