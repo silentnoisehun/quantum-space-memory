@@ -1,0 +1,254 @@
+{
+  "preregistration": "docs/PREREGISTRATION-spatial_ramsey_probe.md",
+  "job_id": "dbnbvrtt7fqc73ajaigg",
+  "backend": "ibm_kingston",
+  "qubits": {
+    "source_pump": 48,
+    "spatial_sensor": 49,
+    "distance_spectator": 50
+  },
+  "space_exposure_delay_us": 10.0,
+  "shots": 4096,
+  "calibration_timestamp": "2026-11-07 06:56:12+01:00",
+  "phases_rad": [
+    0.0,
+    0.7853981633974483,
+    1.5707963267948966,
+    2.356194490192345,
+    3.141592653589793,
+    3.9269908169872414,
+    4.71238898038469,
+    5.497787143782138
+  ],
+  "fringe_vacuum": {
+    "visibility": 0.920480409086232,
+    "phase_offset_rad": 2.6806664269220986,
+    "phase_offset_deg": 153.59087254505076,
+    "offset": 0.4984436035156925,
+    "r2": 0.9996979045234985,
+    "phase_err_rad": 0.007774146575681781
+  },
+  "fringe_pumped": {
+    "visibility": 0.9194661050332122,
+    "phase_offset_rad": 2.687011042943282,
+    "phase_offset_deg": 153.95439226569565,
+    "offset": 0.5000610351562665,
+    "r2": 0.9997211677195602,
+    "phase_err_rad": 0.007468735597350549
+  },
+  "spatial_phase_shift_rad": 0.0063446160211833025,
+  "spatial_phase_shift_deg": 0.36351972064488813,
+  "combined_error_rad": 0.01078050863379442,
+  "h1_supported": false,
+  "verdict": "H0 CONFIRMED: Spatial cavity field is consistent with zero residual phase shift.",
+  "raw_counts": [
+    {
+      "arm": "vacuum",
+      "phi": 0.0,
+      "label": "0",
+      "p1_sensor_q1": 0.908447265625,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "11": 3429,
+        "01": 306,
+        "10": 292,
+        "00": 69
+      }
+    },
+    {
+      "arm": "vacuum",
+      "phi": 0.7853981633974483,
+      "label": "pi/4",
+      "p1_sensor_q1": 0.65576171875,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "10": 413,
+        "01": 1204,
+        "11": 2273,
+        "00": 206
+      }
+    },
+    {
+      "arm": "vacuum",
+      "phi": 1.5707963267948966,
+      "label": "pi/2",
+      "p1_sensor_q1": 0.2880859375,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "10": 517,
+        "01": 1667,
+        "11": 663,
+        "00": 1249
+      }
+    },
+    {
+      "arm": "vacuum",
+      "phi": 2.356194490192345,
+      "label": "3pi/4",
+      "p1_sensor_q1": 0.059326171875,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "00": 2863,
+        "11": 91,
+        "01": 990,
+        "10": 152
+      }
+    },
+    {
+      "arm": "vacuum",
+      "phi": 3.141592653589793,
+      "label": "pi",
+      "p1_sensor_q1": 0.089111328125,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "00": 3476,
+        "10": 298,
+        "11": 67,
+        "01": 255
+      }
+    },
+    {
+      "arm": "vacuum",
+      "phi": 3.9269908169872414,
+      "label": "5pi/4",
+      "p1_sensor_q1": 0.3505859375,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "00": 2248,
+        "10": 1205,
+        "01": 412,
+        "11": 231
+      }
+    },
+    {
+      "arm": "vacuum",
+      "phi": 4.71238898038469,
+      "label": "3pi/2",
+      "p1_sensor_q1": 0.708984375,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "10": 1662,
+        "00": 696,
+        "11": 1242,
+        "01": 496
+      }
+    },
+    {
+      "arm": "vacuum",
+      "phi": 5.497787143782138,
+      "label": "7pi/4",
+      "p1_sensor_q1": 0.92724609375,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "01": 213,
+        "11": 2821,
+        "10": 977,
+        "00": 85
+      }
+    },
+    {
+      "arm": "pumped",
+      "phi": 0.0,
+      "label": "0",
+      "p1_sensor_q1": 0.91162109375,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "11": 3476,
+        "10": 258,
+        "01": 297,
+        "00": 65
+      }
+    },
+    {
+      "arm": "pumped",
+      "phi": 0.7853981633974483,
+      "label": "pi/4",
+      "p1_sensor_q1": 0.6572265625,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "01": 1163,
+        "11": 2224,
+        "10": 468,
+        "00": 241
+      }
+    },
+    {
+      "arm": "pumped",
+      "phi": 1.5707963267948966,
+      "label": "pi/2",
+      "p1_sensor_q1": 0.298095703125,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "00": 1289,
+        "11": 679,
+        "01": 1586,
+        "10": 542
+      }
+    },
+    {
+      "arm": "pumped",
+      "phi": 2.356194490192345,
+      "label": "3pi/4",
+      "p1_sensor_q1": 0.0556640625,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "00": 2970,
+        "01": 898,
+        "11": 75,
+        "10": 153
+      }
+    },
+    {
+      "arm": "pumped",
+      "phi": 3.141592653589793,
+      "label": "pi",
+      "p1_sensor_q1": 0.09326171875,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "00": 3421,
+        "10": 314,
+        "01": 293,
+        "11": 68
+      }
+    },
+    {
+      "arm": "pumped",
+      "phi": 3.9269908169872414,
+      "label": "5pi/4",
+      "p1_sensor_q1": 0.351318359375,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "01": 450,
+        "00": 2207,
+        "10": 1203,
+        "11": 236
+      }
+    },
+    {
+      "arm": "pumped",
+      "phi": 4.71238898038469,
+      "label": "3pi/2",
+      "p1_sensor_q1": 0.704345703125,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "11": 1278,
+        "10": 1607,
+        "01": 593,
+        "00": 618
+      }
+    },
+    {
+      "arm": "pumped",
+      "phi": 5.497787143782138,
+      "label": "7pi/4",
+      "p1_sensor_q1": 0.928955078125,
+      "p1_spectator_q2": 0.0,
+      "counts": {
+        "01": 199,
+        "11": 2915,
+        "10": 890,
+        "00": 92
+      }
+    }
+  ]
+}
