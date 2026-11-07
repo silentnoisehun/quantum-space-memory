@@ -100,6 +100,20 @@ Direct interrogation of continuous raw IQ readout voltages to detect sub-bit gro
 
 ---
 
+## ⚡ Zero IQ Energy-Matched Control (`20261107T075634Z`)
+
+Energy-matched control removing drive energy asymmetry between $s=1$ ($SX, SX$) and $s=0$ ($SX, SX^\dagger$) with verified physical pulse counts (2 physical pulses/qubit, `optimization_level=0`):
+* **Preregistration:** [`docs/PREREGISTRATION-zero_iq_energy_matched.md`](docs/PREREGISTRATION-zero_iq_energy_matched.md) (Script: `scripts/zero_iq_energy_matched.py`, seed `20261112`)
+* **Execution:** Exactly **40 complete pairs** (80 jobs, 1024 shots/circuit, kerneled IQ data) with 100% bit classification accuracy in Job A ($A_{\text{correct}} = 1.0$) and verified pulse execution ($[2, 2, 2]$ physical pulses per qubit).
+* **Positive Control:** Reset imperfection detected with **$\bar{d} = +0.0175$ ($p = 0.000005 < 0.01$)**, confirming high detector sensitivity.
+* **Primary Result:** Ground-state cloud centroid shift along the $0 \to 1$ axis:
+  $$\Delta = -0.00135,\quad p_{\text{two-sided}} = 0.2862 \gg 0.01$$
+  - Null standard deviation: $\sigma_{\text{null}} = 0.00127$ (observed $|\Delta| \approx 1.06\sigma$, strictly within shot noise).
+  - Secondary metrics: $y$-shift $p = 0.49$, width $w_0$ $p = 0.99$, excited fraction $p = 1.00$.
+* **Verdict:** **H0 CONFIRMED / H1 NOT SUPPORTED.** Equalized microwave pulse energy produces an independent, confirmed null result on an independent seed, definitively ruling out both qubit-state and drive-energy cross-job ground-cloud memory.
+
+---
+
 ## 📁 Repository Layout
 
 ```
