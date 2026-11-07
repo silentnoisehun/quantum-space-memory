@@ -66,6 +66,18 @@ The raw data reveals that it is **not true that the physical transmon system has
 
 ---
 
+## 🛰️ Spatial Cavity-Field Ramsey Phase Probe
+
+To test whether the surrounding electromagnetic field (cavity resonator / coupling bus) retains residual coherent phase information, we deployed an in-situ **Ramsey Quantum Phase Magnetometer** on spectator sensor $Q_{49}$ while pumping/resetting adjacent source $Q_{48}$ across a $10\ \mu\text{s}$ exposure window.
+
+* **Preregistration:** [`docs/PREREGISTRATION-spatial_ramsey_probe.md`](docs/PREREGISTRATION-spatial_ramsey_probe.md)
+* **Results (`ibm_kingston`, job `dbnbvrtt7fqc73ajaigg`, 4096 shots):**
+  - Sensor Visibility: $V_{\text{vacuum}} = 0.9205$ ($R^2 = 0.9997$), $V_{\text{pumped}} = 0.9195$ ($R^2 = 0.9997$).
+  - Measured Spatial Phase Shift: **$\Delta\Phi = +0.00634\text{ rad} = +0.36^\circ \pm 0.62^\circ$** ($\pm 0.01078\text{ rad}$).
+* **Verdict:** **H0 CONFIRMED** — the differential phase shift induced on the spatial sensor is strictly within the $1\sigma$ shot noise envelope ($|\Delta\Phi| < 3\sigma$). The inter-qubit spatial field displays zero measurable coherent AC Stark displacement post-reset.
+
+---
+
 ## 📁 Repository Layout
 
 ```
