@@ -76,13 +76,20 @@ To test whether the surrounding electromagnetic field (cavity resonator / coupli
 ## 🔬 Spatial Bath & Substrate Spectroscopy (`dbnc6ooqtr0c73acp00g`)
 
 Comprehensive 92-circuit spectroscopy on `ibm_kingston` (Heron r2) evaluating spatial phase imprint, dielectric two-level defect (TLS) dephasing ($T_2^*$), and CPMG-4 dynamical decoupling AC noise filtering:
-* **Preregistration:** [`docs/PREREGISTRATION-spatial_bath_spectroscopy.md`](docs/PREREGISTRATION-spatial_bath_spectroscopy.md)
-* **In-situ Positive Control:** Injected calibrated $R_z(\pi/4) = +45.0^\circ$ phase shift resolved to **$+49.27^\circ \pm 0.71^\circ$** ($R^2 = 0.9999$). Control passed.
-* **Findings:**
-  - **No Persistent Spatial Quantum State:** Spectator population bias across all delays is bounded below $0.8\%$ ($\Delta P_1 \le 0.0076 \ll 0.03$ threshold).
-  - **Reset Crosstalk Footprint:** An invariant phase rotation of $\approx -1.9^\circ \pm 0.5^\circ$ is observed across delays, originating directly from the microwave active reset pulse of adjacent $Q_{48}$ via coupling bus crosstalk, rather than time-accumulating vacuum memory.
-  - **Dielectric Substrate Invariance:** TLS dephasing contrast curves under vacuum vs saturated conditions match within shot noise ($\chi^2 = 11.3 / 16$).
-* **Verdict:** **H0 CONFIRMED (Corrected $p = 0.027 > 0.01$, Markovian Vacuum / Reset Crosstalk Bounded).**
+* **Preregistration:** [`docs/PREREGISTRATION-spatial_bath_spectroscopy.md`](docs/PREREGISTRATION-spatial_bath_spectroscopy.md) (uploaded 2026-11-07 06:18 UTC, preceding run at 06:21 UTC).
+* **In-situ Positive Control:** Injected calibrated $R_z(\pi/4) = +45.0^\circ$ phase shift resolved to **$+49.27^\circ \pm 0.95^\circ$** (target $45^\circ$, deviation $+4.27^\circ$, $R^2 = 0.9999$). Control passed under preregistered rule ($|\text{deviation}| < 5^\circ$, $R^2 > 0.95$). *Note:* P4 circuits omit active reset on $Q_{48}$ while P1 baseline includes reset, so the residual $+4.27^\circ$ offset may include reset-induced phase.
+* **Findings (Recomputed via Parametric Binomial Bootstrap & Permutation):**
+  - **Protocol 1 (Spatial Phase Imprint):** Largest phase deviation observed at $\tau = 50\ \mu\text{s}$: $\Delta\Phi = -4.07^\circ \pm 1.45^\circ$ ($z = -2.81$, uncorrected $p = 0.005$). Across all other delays, $|z| \le 2.22$.
+  - **Protocol 1 (Population Tomography):** Spectator population bias across all delays is bounded below $0.8\%$ ($|\Delta P_1| \le 0.0076$), with all stratified permutation tests yielding $p \ge 0.16$ (200,000 draws).
+  - **Protocol 1 (Exploratory / Non-Preregistered):** Delay-independent phase offset of $-1.89^\circ \pm 0.50^\circ$, present already at $\tau = 0\ \mu\text{s}$ (constant model $\chi^2 = 3.87$, $\text{df} = 4$). Consistent with microwave active reset crosstalk from adjacent $Q_{48}$; does not accumulate over time and is not a spatial memory signal.
+  - **Protocol 2 (Dielectric TLS Bath Dephasing):** $\Delta T_2^* = -2.2 \pm 3.5\ \mu\text{s}$ ($z = -0.61$). *Correction:* The earlier claim that "TLS contrast curves match within shot noise" is retracted as evidence of physical invariance. Protocol 2's $s=1$ branch placed 10 $X$ gates on $Q_{48}$; an even number of $X$ gates is identity, which `transpile(..., optimization_level=1)` completely eliminates. Both branches compiled into identical circuits (an A/A test), providing no probe of substrate TLS saturation.
+  - **Protocol 3 (CPMG-4 AC Noise Filtering):** Largest visibility deviation observed at $T_{\text{total}} = 80\ \mu\text{s}$: $\Delta V = +0.040 \pm 0.014$ ($z = +2.89$, uncorrected $p = 0.004$). For all other filter times, $|z| \le 1.27$. *Note:* In Protocol 3, $Q_{48}$ was left in $|1\rangle$ without reset during spectator interrogation, so any physical effect would reflect static $Q_{48}$–$Q_{49}$ $ZZ$ cross-talk coupling, not post-reset vacuum memory.
+* **Preregistered Ambiguity & Verdict:**
+  - The frozen preregistration simultaneously stated a $3\sigma$ threshold and $\alpha = 0.01$ ($3\sigma$ two-sided corresponds to $p \approx 0.0027$; $\alpha = 0.01$ corresponds to $z = 2.58$). Under an uncorrected $\alpha = 0.01$ reading, the $\tau = 50\ \mu\text{s}$ phase shift ($p = 0.005$) and $T = 80\ \mu\text{s}$ CPMG contrast ($p = 0.004$) would independently exceed threshold.
+  - Under the strictly preregistered $3\sigma$ decision rule ($|z| \ge 3.0$), no test passes (maximum $|z| = 2.89 < 3.0$).
+  - Across all 15 preregistered tests, Holm-Bonferroni family-wise error correction yields a minimum adjusted $p = 0.057 > 0.05$.
+  - **Verdict:** **$H_0$ CONFIRMED (Marginal / Boundary Case: max $|z| = 2.89 < 3.0$; Holm min $p = 0.057$). Standard quantum mechanics and Markovian vacuum thermalization hold.** Future preregistrations will specify a single unambiguous significance threshold.
+* **Erratum Notice (2026-11-18):** Replaced post-hoc decision thresholds from commit `66ff7a2` with the original preregistered rules, replaced single-degree-of-freedom `curve_fit` errors with parametric binomial bootstrap errors, retracted Protocol 2 TLS conclusion due to compiler identity cancellation, and added analysis script `scripts/analyze_spatial_spectroscopy_prereg.py`. Detailed log in [`preregistration/ERRATA_2026-11-18_spectroscopy.md`](preregistration/ERRATA_2026-11-18_spectroscopy.md).
 
 ---
 

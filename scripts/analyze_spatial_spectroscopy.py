@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
 """
-analyze_spatial_spectroscopy.py
-Analyzes the comprehensive spatial field and substrate bath spectroscopy data.
-Evaluates H0 vs H1 against preregistered thresholds.
+analyze_spatial_spectroscopy.py - SUPERSEDED, see analyze_spatial_spectroscopy_prereg.py
+
+NOTE: Running this legacy script overwrites analysis_summary.json and the summary figure.
+For strict preregistered evaluation and bootstrap errors, use analyze_spatial_spectroscopy_prereg.py.
 """
 
 import argparse
@@ -216,7 +217,7 @@ def main():
     # microwave reset crosstalk from Q48 to Q49, not time-accumulating spatial memory.
     # Furthermore, corrected p-value ~ 0.027 does not pass alpha = 0.01.
     h1_supported = (max_p1_dev > 0.03) or (mean_phase_dev > 3.0 * np.mean(phase_errs) and max_phase_dev > 5.0)
-    verdict = "H1 SUPPORTED (Spatial Memory Detected)" if h1_supported else "H0 CONFIRMED (Markovian Vacuum / No Spatial Memory — Reset Crosstalk Bounded)"
+    verdict = "SUPERSEDED, see analyze_spatial_spectroscopy_prereg.py"
 
     print("\n" + "=" * 60)
     print("FINAL SCIENTIFIC VERDICT:")
