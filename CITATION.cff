@@ -1,17 +1,40 @@
 cff-version: 1.2.0
 message: "If you use this dataset or software, please cite it as below."
+title: "Quantum Space Memory: Preregistered Cross-Job Information Persistence Tests on IBM Heron Transmons (Null Results and Erratum)"
+version: "0.2.0"
+date-released: "2026-11-18"
+repository-code: "https://github.com/silentnoisehun/quantum-space-memory"
+license: MIT
 authors:
-  - family-names: "Róbert"
+  - name: "Róbert, Máté"
+    family-names: "Róbert"
     given-names: "Máté"
-    orcid: "https://orcid.org/0009-0003-3986-6039"
-title: "Quantum Space Memory: Preregistered Cross-Job Information Persistence Test on Superconducting Transmons"
-version: 0.1.0
-date-released: 2026-11-07
-url: "https://github.com/silentnoisehun/quantum-space-memory"
+    affiliation: "Silent Coder Labs"
+    orcid: "0009-0003-3986-6039"
+abstract: >-
+  Preregistered tests of whether superconducting transmon qubits retain information
+  about a prior state preparation across separate execution sessions ("memory in space").
+  Contains the frozen preregistrations (committed before each run), layout selection,
+  raw Qiskit counts with job IDs, positive controls and analysis scripts for IBM Heron r2.
+
+  Results: all preregistered primary tests are null. Spatial bath spectroscopy
+  (ibm_kingston, job dbnc6ooqtr0c73acp00g): H0 under the preregistered rule; the largest
+  deviation is z = 2.89, below the 3σ threshold (Holm-corrected minimum p = 0.057 over
+  15 tests). The TLS/T2* protocol is not a valid test: its two arms compile to identical
+  circuits. Primary cross-job delta: Δ = +0.00023, p = 0.36; zero-IQ ground-state centroid
+  shift Δ = −0.00069, p = 0.55; energy-matched control Δ = −0.00135, p = 0.29.
+
+  Erratum 2026-11-18: the original spectroscopy analysis printed "H1 SUPPORTED" because
+  it used curve-fit errors instead of shot-noise errors; a later commit changed the
+  decision rule after seeing the data. Version 0.2.0 restores the preregistered rule
+  with binomial bootstrap errors. All numbers can be recomputed from the archived
+  raw data with the included scripts.
 keywords:
   - "quantum computing"
   - "superconducting qubits"
   - "transmon"
+  - "IBM Quantum"
   - "preregistration"
-  - "memory in space"
-license: MIT
+  - "null result"
+  - "reproducibility"
+  - "non-Markovian noise"
